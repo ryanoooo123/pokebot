@@ -1,3 +1,15 @@
+# pokebot
+
+Fork of [Jackaljkdan/pokernow-bot](https://github.com/Jackaljkdan/pokernow-bot) with:
+
+- pokernow.com support (manifest + selectors re-verified on the live site)
+- a new default strategy (`src/ai/equity/`) that picks actions by Monte Carlo equity
+- a heads-up hold'em simulator in `sim/` (`npm run sim:test`, `sim:run`, `sim:sweep`) used to brute-force the strategy settings
+
+Only use it at private tables where everyone knows a bot is playing.
+
+---
+
 # Overview
 
 This is poker bot implemented for https://www.pokernow.club/ as a chrome extension.

@@ -1,18 +1,12 @@
-import { PreflopPhase } from "../state";
-import { findBestGapStraight, getPairs, isOneCardFlushPossible, isOneCardStraightPossible, isOpenEndedStraightPresent } from "./aiUtils";
+import { equityAction } from "./equity/equityAi";
 import { ifThenElseAction } from "./ifThenElse/ifThenElseAi";
 
+/**
+ * "equity"     = simulator sweep winner (default)
+ * "ifThenElse" = the original hand-by-hand rules
+ */
+const STRATEGY: "equity" | "ifThenElse" = "equity";
+
 export function getAction(state: State): Action {
-    if (state.phase.code > PreflopPhase.code) {
-        console.log("stats", {
-            flushDraw: isOneCardFlushPossible(state.handPlusBoard),
-            openStraight: isOpenEndedStraightPresent(state.handPlusBoard),
-            oneCardFlush: isOneCardFlushPossible(state.board),
-            oneCardStraight: isOneCardStraightPossible(state.board),
-            bestGapStraight: findBestGapStraight(state.board),
-            boardPairs: getPairs(state.board),
-        });
-    }
-    
-    return ifThenElseAction(state);
+    return STRATEGY === "equity" ? equityAction(state) : ifThenElseAction(state);
 }

@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sim:build": "tsc -p tsconfig.sim.json",
+    "sim:test": "npm run sim:build && node sim-build/sim/sim.test.js",
+    "sim:run": "npm run sim:build && node sim-build/sim/run.js",
+    "sim:sweep": "npm run sim:build && node sim-build/sim/sweep.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +18,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "playwright": "^1.49.1",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",

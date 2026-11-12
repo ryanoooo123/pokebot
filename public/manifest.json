@@ -2,13 +2,13 @@
     "manifest_version": 3,
     "name": "Pokernow Bot",
     "description": "Base Level Extension",
-    "version": "0.4.4",
+    "version": "0.5.0",
     "action": {
       "default_popup": "popup.html",
       "default_icon": "logo.png"
     },
     "content_scripts": [{
-      "matches": ["https://www.pokernow.club/*"],
+      "matches": ["https://www.pokernow.club/*", "https://www.pokernow.com/*", "https://pokernow.com/*"],
       "js": ["main.js"]
     }]
   }

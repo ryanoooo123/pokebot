@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "target": "es2020", "module": "commonjs", "outDir": "sim-build",
+    "strict": true, "esModuleInterop": true, "skipLibCheck": true, "rootDir": "."
+  },
+  "include": ["src/types.d.ts", "src/ai/ai.ts", "sim/**/*.ts"]
+}
